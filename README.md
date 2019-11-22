@@ -21,6 +21,6 @@ yarn build
 ```
 
 ### 演示地址
-http://117.51.150.252:5000
+[http://www.ljserver.cn:5000](http://www.ljserver.cn:5000)
 
 ### 目前只在谷歌浏览器中做了测试
