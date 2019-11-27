@@ -16,7 +16,7 @@
                     mount: document.querySelector('#app'),
                     wpsUrl: url
                 });
-                wps.setToken(token);
+                wps.setToken({"token":token});
             }
         }
     }
