@@ -1,12 +1,5 @@
 <template>
-  <div class="dbFile">
-    <div id="nav">
-      <h2>
-        <router-link to="/webFile">webFile</router-link>
-        &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <router-link to="/dbFile">dbFile</router-link>
-      </h2>
-    </div>
+  <div class="dbFile" style="margin-top: 3%">
     <el-table
             :data="tableData"
             size="mini"
@@ -76,6 +69,8 @@
 </template>
 
 <script>
+  import {getFileList, getViewUrlDbPath} from '@/api/index'
+
   export default {
     name: "dbFile",
     data() {
@@ -88,7 +83,7 @@
     },
     methods: {
       getFileList(){
-        this.axios.get('/v1/api/file/getFileList').then((res) => {
+        getFileList().then((res) => {
           if (res.data) {
             this.tableData = res.data.data;
           }else {
@@ -99,7 +94,11 @@
         });
       },
       getViewUrlDbPath(fileId,userId){
-        this.axios.get('/v1/api/file/getViewUrlDbPath?fileId=' + fileId + "&userId=" + userId).then((res) => {
+        const params = {
+          fileId: fileId,
+          userId: userId
+        };
+        getViewUrlDbPath(params).then((res) => {
           if (res.data) {
             let r = res.data.data;
 

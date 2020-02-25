@@ -1,23 +1,26 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
 const routes = [
   {
     path: '/',
-    name: 'webFile',
-    component:() => import('../views/webFile.vue')
-  },
-  {
-    path: '/webFile',
-    name: 'webFile',
-    component: () => import('../views/webFile.vue')
-  },
-  {
-    path: '/dbFile',
-    name: 'dbFile',
-    component: () => import('../views/dbFile.vue')
+    name: 'index',
+    component:() => import('../views/index.vue'),
+    redirect: 'webFile',
+    children:[
+      {
+        path: '/webFile',
+        name: 'webFile',
+        component: () => import('../views/webFile.vue')
+      },
+      {
+        path: '/dbFile',
+        name: 'dbFile',
+        component: () => import('../views/dbFile.vue')
+      }
+    ]
   },
   {
     path: '/viewFile',
@@ -26,8 +29,9 @@ const routes = [
   }
 ];
 
-const router = new VueRouter({
+const router = new Router({
   mode: 'history',
+  base: '/',
   routes
 });
 

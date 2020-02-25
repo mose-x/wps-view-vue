@@ -7,7 +7,7 @@
 <style>
   html{
     height: 97.5%;
-    width: 98.5%;
+    width: 99%;
   }
   body{
     height: 100%;
@@ -32,16 +32,4 @@
     touch-action: manipulation;
   }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

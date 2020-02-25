@@ -1,18 +1,11 @@
 <template>
   <div class="webFile">
-    <div id="nav">
-      <h2>
-        <router-link to="/webFile">webFile</router-link>
-        &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <router-link to="/dbFile">dbFile</router-link>
-      </h2>
-    </div>
-    <h1>请输入可访问的webFileURL</h1>
-    <div style="margin: 20px 0;"></div>
+    <h1 style="margin-top: 4%">请输入可访问的FileUrl地址</h1>
+    <div style="margin: 30px 0;"></div>
     <el-input class="cl-textarea"
             type="textarea"
             :autosize="{ minRows: 3, maxRows: 4}"
-            placeholder="请输入内容"
+            placeholder="请输入内容，保证文档可访问，如http://www.file.cn/a.docx"
             v-model="textarea">
     </el-input>
     <div style="margin: 40px 0;"></div>
@@ -23,6 +16,8 @@
 </template>
 
 <script>
+  import {getViewUrlWebPath} from '@/api/index'
+
   export default {
     name: "webFile",
     data() {
@@ -49,7 +44,10 @@
             return;
           }
         }
-        this.axios.get('/v1/api/file/getViewUrlWebPath?fileUrl=' + this.textarea).then((res) => {
+        const params = {
+          fileUrl: this.textarea
+        };
+        getViewUrlWebPath(params).then((res) => {
           if (res.data) {
             let r = res.data.data;
 
