@@ -1,6 +1,7 @@
 <template>
   <div class="dbFile" style="margin-top: 3%">
     <el-table
+            v-loading="loading"
             :data="tableData"
             size="mini"
             align="center"
@@ -75,6 +76,7 @@
     name: "dbFile",
     data() {
       return {
+        loading: true,
         tableData: []
       }
     },
@@ -89,11 +91,14 @@
           }else {
             this.showErrMeg('请求错误！');
           }
+          this.loading = false;
         }).catch(()=>{
           this.showErrMeg('请求错误！');
+          this.loading = false;
         });
       },
       getViewUrlDbPath(fileId,userId){
+        this.loading = true;
         const params = {
           fileId: fileId,
           userId: userId
@@ -112,8 +117,10 @@
           }else {
             this.showErrMeg('请求错误！');
           }
+          this.loading = false;
         }).catch(()=>{
           this.showErrMeg('请求错误！');
+          this.loading = false;
         });
       },
       handleEdit(fileId,userId){

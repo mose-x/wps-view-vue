@@ -11,7 +11,7 @@
     <div style="margin: 40px 0;"></div>
     <br>
     <el-button icon="el-icon-delete" class="el-button" @click="clClean">clean</el-button>
-    <el-button icon="el-icon-check" class="el-button" @click="clSubmit">view</el-button>
+    <el-button icon="el-icon-check" class="el-button" @click="clSubmit" v-loading.fullscreen.lock="loading">view</el-button>
   </div>
 </template>
 
@@ -22,6 +22,7 @@
     name: "webFile",
     data() {
       return {
+        loading: false,
         textarea: ''
       }
     },
@@ -44,6 +45,7 @@
             return;
           }
         }
+        this.loading = true;
         const params = {
           fileUrl: this.textarea
         };
@@ -61,8 +63,10 @@
           }else {
             this.showErrMeg('请求错误！');
           }
+          this.loading = false;
         }).catch(()=>{
           this.showErrMeg('请求错误！');
+          this.loading = false;
         });
       }
     }
