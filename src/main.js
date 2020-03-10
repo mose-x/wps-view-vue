@@ -16,6 +16,11 @@ Vue.use(comFun);
 
 Vue.config.productionTip = false;
 
+// default 分页参数
+Vue.prototype.$page = 1;
+Vue.prototype.$size = 10;
+Vue.prototype.$PageSizeRange = [10,25,50];
+
 new Vue({
   router,
   store,

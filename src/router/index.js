@@ -26,12 +26,21 @@ const routes = [
     path: '/viewFile',
     name: 'viewFile',
     component: () => import('../views/viewFile.vue')
+  },
+  {
+    path: '/createFile',
+    name: 'createFile',
+    component: () => import('../views/createFile.vue')
   }
 ];
 
 const router = new Router({
-  mode: 'history',
-  base: '/',
+  // 此处使用默认的hash模式，即在浏览器地址栏中会出现那个#
+  // 若要使用history模式，则需要在后端做相应的配置
+  // 相关解释说明：
+  // https://router.vuejs.org/zh/guide/essentials/history-mode.html
+  // https://www.cnblogs.com/yszblog/p/10255458.html
+  // mode: 'history',
   routes
 });
 

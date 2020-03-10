@@ -8,6 +8,13 @@ export default {
                 type: 'error'
             });
         };
+        Vue.prototype.showSuccessMeg = function (msg) {
+            this.$message({
+                showClose: true,
+                message: msg,
+                type: 'success'
+            });
+        };
     }
 }
 // 调用示例： this.showErrMeg(xxx)

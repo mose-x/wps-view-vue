@@ -17,7 +17,11 @@
 
 <style scoped>
     #nav {
-        padding: 30px;
+        height: auto;
+        padding-top: 2%;
+        width: calc(100% - 200px);
+        margin-left: 6%;
+        text-align: center;
     }
 
     #nav a {
