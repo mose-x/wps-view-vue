@@ -11,7 +11,7 @@
 2. main.js 中的axios.defaults.baseURL请自行更换，必须和[wps开放平台](https://open.wps.cn/weboffice)上的回调URL一致
 
 ### 演示地址
-[http://www.ljserver.cn:5000](http://www.ljserver.cn:5000)
+[https://ljserver.cn/wpsonline](https://ljserver.cn/wpsonline)
 
 ## 后台java代码地址
 [https://github.com/mose-x/wps-view-java.git](https://github.com/mose-x/wps-view-java.git)
